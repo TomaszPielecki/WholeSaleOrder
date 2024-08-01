@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zamówienie</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            width: 100%;
+            max-width: 600px; /* Maximum width of the form */
+            margin: 0 auto;
+            background-color: #fff; /* Optional background color for the form */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 8px; /* Rounded corners for the form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow for the form */
+        }
+        label, input, table, select {
+            width: 100%;
+            text-align: left; /* Aligning text to the left for better readability */
+        }
+        input[type="text"], input[type="email"], input[type="number"],input[type="tel"], select {
+            width: 100%;
+            padding: 10px; /* Increased padding for better usability */
+            margin-bottom: 10px; /* Increased margin for better spacing */
+            border: 1px solid #ccc; /* Border style for input fields */
+            border-radius: 4px; /* Rounded corners for input fields */
+        }
+        input[type="submit"] {
+            background-color: #2ad833; /* Darker green on hover */
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            width: calc(100% - 20px);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f2f2f2;
+        }
+        .category {
+            display: none;
+        }
+        h2{
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+        }
+</style>
+</head>
+<body>
+<form><h2>Formularz zamówienia</h2></form>
+
+<form id="orderForm">
+    <!-- Dane kontaktowe -->
+    <h3>Dane kontaktowe</h3>
+    <label for="companyName">Nazwa firmy:</label>
+    <input type="text" id="companyName" name="companyName" required><br><br>
+    <label for="nip">NIP:</label>
+    <input type="text" id="nip" name="nip" required pattern="\d{9}" title="NIP powinien mieć 9 cyfr"><br><br>
+    <label for="address">Adres:</label>
+    <input type="text" id="address" name="address" required><br><br>
+    <label for="names">Imię:</label>
+    <input type="text" id="names" name="names" required><br><br>
+    <label for="phone">Telefon:</label>
+    <input type="tel" id="phone" name="phone" required pattern="\d{9,12}" title="Telefon powinien mieć od 9 do 12 cyfr"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <!-- Dropdown menu for categories -->
+    <h3>Wybierz kategorię</h3>
+    <select id="categorySelect">
+        <option value="none">Wybierz kategorię</option>
+        <option value="sweets">Słodycze</option>
+        <option value="dairy">Nabiał</option>
+        <option value="dry">Suche</option>
+        <option value="tea">Herbata</option>
+        <option value="coffe">Kawa</option>
+        <option value="drinks">Napoje</option>
+        <option value="chemistry">Chemia</option>
+        <option value="alcohol">Alkohol</option>
+    </select>
+
+    <div id="productsSection">
+        <div id="sectionSweets" class="category">
+            <h3>Słodycze</h3>
+            <table id="productsTableSweets">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>CU.ROSHEN BIM-BOM 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1" min="0" value="0" data-product="CU.ROSHEN BIM-BOM 1KG">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN BUTTER MILK 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity2" min="0" value="0"
+                               data-product="CU.ROSHEN BUTTER MILK 1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN CRAZY BEE FRUTTY 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity3" min="0" value="0"
+                               data-product="CU.ROSHEN CRAZY BEE FRUTTY 1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN COFFE LIKE 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity4" min="0" value="0" data-product="CU.ROSHEN COFFE LIKE 1KG">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN GAL/CZEK.2KG DUŻA</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity5" min="0" value="0"
+                               data-product="CU.ROSHEN GAL/CZEK.2KG DUŻA"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN JELLY 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity6" min="0" value="0" data-product="CU.ROSHEN JELLY 1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN JUICE MIX 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity7" min="0" value="0" data-product="CU.ROSHEN JUICE MIX 1KG">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN YOGURTINO 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity8" min="0" value="0" data-product="CU.ROSHEN YOGURTINO 1KG">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN KONAF.BIANK.1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity9" min="0" value="0"
+                               data-product="CU.ROSHEN KONAF.BIANK.1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN KROCK 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity10" min="0" value="0" data-product="CU.ROSHEN KROCK 1KG">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN KROKER 500G</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity11" min="0" value="0" data-product="CU.ROSHEN KROKER 500G">
+                    </td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN KRÓWKA KORIVKA 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity12" min="0" value="0"
+                               data-product="CU.ROSHEN KRÓWKA KORIVKA 1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN MENTHOL EUCA.1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity13" min="0" value="0"
+                               data-product="CU.ROSHEN MENTHOL EUCA.1KG"></td>
+                </tr>
+                <tr>
+                    <td>CU.ROSHEN MILKY SPLASH 1KG</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity14" min="0" value="0"
+                               data-product="CU.ROSHEN MILKY SPLASH 1KG"></td>
+                </tr>
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sectionDairy" class="category">
+            <h3>Nabiał</h3>
+            <table id="productsTableDairy">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>MLEKO ŁOWICKIE 3,2% UHT 1L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1225" min="0" value="0"
+                               data-product="MLEKO ŁOWICKIE 3,2% UHT 1L"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO MU UHT 2% 1L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1226" min="0" value="0" data-product="MLEKO MU UHT 2% 1L">
+                    </td>
+                </tr>
+                <tr>
+                    <td>MLEKO WYPASIONE UHT 3,2% 1L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1227" min="0" value="0"
+                               data-product="MLEKO WYPASIONE UHT 3,2% 1L"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO ŁACIATE UHT 2% 1L MLEKPOL</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1228" min="0" value="0"
+                               data-product="MLEKO ŁACIATE UHT 2% 1L MLEKPOL"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO ŁACIATE 1L 3,8% JUNIOR</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1229" min="0" value="0"
+                               data-product="MLEKO ŁACIATE 1L 3,8% JUNIOR"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO ŁACIATE UHT 3.2% 1L MLEKPOL</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1230" min="0" value="0"
+                               data-product="MLEKO ŁACIATE UHT 3.2% 1L MLEKPOL"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO ŁACIATE 3,2% 1L BUTELKA</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1231" min="0" value="0"
+                               data-product="MLEKO ŁACIATE 3,2% 1L BUTELKA"></td>
+                </tr>
+                <tr>
+                    <td>MLEKO ŁACIATE 2% 1L BUTELKA</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1232" min="0" value="0"
+                               data-product="MLEKO ŁACIATE 2% 1L BUTELKA"></td>
+                </tr>
+
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sectionDry" class="category">
+            <h3>Suche</h3>
+            <table id="productsTableDry">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>MĄKA KRUPCZATKA 1KG SZCZEPANKI kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1134" min="0" value="0"
+                               data-product="MĄKA KRUPCZATKA 1KG SZCZEPANKI kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA LUKSUS.1KG GD.MŁYNY kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1135" min="0" value="0"
+                               data-product="MĄKA LUKSUS.1KG GD.MŁYNY kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA TORTOWA LUBELLA 1KG kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1136" min="0" value="0"
+                               data-product="MĄKA TORTOWA LUBELLA 1KG kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA ŻYTNIA 1KG TYP720 kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1137" min="0" value="0"
+                               data-product="MĄKA ŻYTNIA 1KG TYP720 kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA TORTOWA 1KG SZCZEPANKI MIŁOSNA kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1138" min="0" value="0"
+                               data-product="MĄKA TORTOWA 1KG SZCZEPANKI MIŁOSNA kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA TORTOWA GD.MŁ. kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1139" min="0" value="0"
+                               data-product="MĄKA TORTOWA GD.MŁ. kg"></td>
+                </tr>
+                <tr>
+                    <td>MĄKA WROCŁ.1KG Z KŁOS.GD.MŁ kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity1140" min="0" value="0"
+                               data-product="MĄKA WROCŁ.1KG Z KŁOS.GD.MŁ kg"></td>
+                </tr>
+                <tr>
+                    <td>CUKIER JEDNOR.5GX100SZT op</td>
+                    <td>op</td>
+                    <td><input type="number" name="quantity432" min="0" value="0"
+                               data-product="CUKIER JEDNOR.5GX100SZT op"></td>
+                </tr>
+                <tr>
+                    <td>CUKIER JEDNOR.4GX1000SZT VEERTEA op</td>
+                    <td>op</td>
+                    <td><input type="number" name="quantity433" min="0" value="0"
+                               data-product="CUKIER JEDNOR.4GX1000SZT VEERTEA op"></td>
+                </tr>
+                <tr>
+                    <td>CUKIER 1kg. kg</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity434" min="0" value="0" data-product="CUKIER 1kg. kg"></td>
+                </tr>
+                <tr>
+                    <td>CUKIER KOSTKA 500G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity435" min="0" value="0" data-product="CUKIER KOSTKA 500G szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>KET.DAGOMA.SŁ.380G ŁAGODNY szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1928" min="0" value="0"
+                               data-product="KET.DAGOMA.SŁ.380G ŁAGODNY szt"></td>
+                </tr>
+                <tr>
+                    <td>KET.DAGOMA.SŁ.380G PIKANTNY szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1929" min="0" value="0"
+                               data-product="KET.DAGOMA.SŁ.380G PIKANTNY szt"></td>
+                </tr>
+                <tr>
+                    <td>KET.DAGOMA.SŁ.380G PIKANTNY szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1930" min="0" value="0"
+                               data-product="KET.DAGOMA.SŁ.380G PIKANTNY szt"></td>
+                </tr>
+                <tr>
+                    <td>KONC.POMID.DAWTONA 200G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1931" min="0" value="0"
+                               data-product="KONC.POMID.DAWTONA 200G szt"></td>
+                </tr>
+                <tr>
+                    <td>KONC.POMID.30%FRUTICO 0,97l szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1932" min="0" value="0"
+                               data-product="KONC.POMID.30%FRUTICO 0,97l szt"></td>
+                </tr>
+                <tr>
+                    <td>KONC.POMID.JARGO 180G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1933" min="0" value="0"
+                               data-product="KONC.POMID.JARGO 180G szt"></td>
+                </tr>
+                <tr>
+                    <td>KONC.POMID.JARGO 900g szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1934" min="0" value="0"
+                               data-product="KONC.POMID.JARGO 900g szt"></td>
+                </tr>
+                <tr>
+                    <td>KONC.POMID.ŁOWICZ 190G 30% szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1935" min="0" value="0"
+                               data-product="KONC.POMID.ŁOWICZ 190G 30% szt"></td>
+                </tr>
+                <tr>
+                    <td>OCET SPIRYTUSOWY 0.5L JAMAR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1988" min="0" value="0"
+                               data-product="OCET SPIRYTUSOWY 0.5L JAMAR szt"></td>
+                </tr>
+                <tr>
+                    <td>OCET SPIR.10% PLAS.0.5L JAMAR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1937" min="0" value="0"
+                               data-product="OCET SPIR.10% PLAS.0.5L JAMAR szt"></td>
+                </tr>
+                <tr>
+                    <td>OCET WINNO-JABŁKOWY 0.5L JAMAR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1938" min="0" value="0"
+                               data-product="OCET WINNO-JABŁKOWY 0.5L JAMAR szt"></td>
+                </tr>
+                <tr>
+                    <td>PASSATA POMIDOR.500G JAMAR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1939" min="0" value="0"
+                               data-product="PASSATA POMIDOR.500G JAMAR szt"></td>
+                </tr>
+                <tr>
+                    <td>PASSATA OLEJ RZEPAK 3L ZŁOTA POLANA szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1941" min="0" value="0"
+                               data-product="PASSATA OLEJ RZEPAK 3L ZŁOTA POLANA szt"></td>
+                </tr>
+                <tr>
+                    <td>OLEJ RZEPAK 5L DUŻY ZŁ.POLANA szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1940" min="0" value="0"
+                               data-product="OLEJ RZEPAK 5L DUŻY ZŁ.POLANA szt"></td>
+                </tr>
+                <tr>
+                    <td>OLEJ RZEPAK 1L ZŁ.POLANA szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1942" min="0" value="0"
+                               data-product="OLEJ RZEPAK 1L ZŁ.POLANA szt"></td>
+                </tr>
+                <tr>
+                    <td>OLEJ KUJAWSKI 1L szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity1943" min="0" value="0" data-product="OLEJ KUJAWSKI 1L szt">
+                    </td>
+                </tr>
+
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+        <div id="sectionTea" class="category">
+            <h3>Herbaty</h3>
+            <table id="productsTableTea">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>H.LIPT.EXP.25T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity15" min="0" value="0" data-product="H.LIPT.EXP.25T szt"></td>
+                </tr>
+                <tr>
+                    <td>H.LIPT.EXP. 50T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity16" min="0" value="0" data-product="H.LIPT.EXP. 50T szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.LIPT.EXP. 88 TOR. szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity17" min="0" value="0" data-product="H.LIPT.EXP. 88 TOR. szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.LIPT.EXP.100 TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity18" min="0" value="0" data-product="H.LIPT.EXP.100 TOR szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.POSTI ARONIA.40G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity19" min="0" value="0" data-product="H.POSTI ARONIA.40G szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.POSTI MAL.Z DZ. RÓŻĄ 2G X20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity20" min="0" value="0"
+                               data-product="H.POSTI MAL.Z DZ. RÓŻĄ 2G X20TOR szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI MALINA.20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity21" min="0" value="0"
+                               data-product="H.POSTI MALINA.20TOR szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI MIĘTA Z CYTRYNA 20X1,5G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity22" min="0" value="0"
+                               data-product="H.POSTI MIĘTA Z CYTRYNA 20X1,5G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI MIĘTA 20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity23" min="0" value="0" data-product="H.POSTI MIĘTA 20TOR szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.POSTI MADRAS LIŚĆ.80G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity24" min="0" value="0"
+                               data-product="H.POSTI MADRAS LIŚĆ.80G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI OWOC.LEŚNE 20X2G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity25" min="0" value="0"
+                               data-product="H.POSTI OWOC.LEŚNE 20X2G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI POKRZYWA 20*1,5G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity26" min="0" value="0"
+                               data-product="H.POSTI POKRZYWA 20*1,5G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI RUMIANEK 1,5GX20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity27" min="0" value="0"
+                               data-product="H.POSTI RUMIANEK 1,5GX20TOR szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI SZAŁWIA 20X1,3G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity28" min="0" value="0"
+                               data-product="H.POSTI SZAŁWIA 20X1,3G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI YUNAN LIŚĆ.80G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity29" min="0" value="0"
+                               data-product="H.POSTI YUNAN LIŚĆ.80G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI ZIELONA2X20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity30" min="0" value="0"
+                               data-product="H.POSTI ZIELONA2X20TOR szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI ZIEL.LIŚĆ.80G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity31" min="0" value="0"
+                               data-product="H.POSTI ZIEL.LIŚĆ.80G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.POSTI ŻURAWINOWA 2GX20TOR szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity32" min="0" value="0"
+                               data-product="H.POSTI ŻURAWINOWA 2GX20TOR szt"></td>
+                </tr>
+                <tr>
+                    <td>H.MALWA HIBISKUS 2GX20T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity33" min="0" value="0"
+                               data-product="H.MALWA HIBISKUS 2GX20T szt"></td>
+                </tr>
+                <tr>
+                    <td>H.SAGA DZ.RÓŻA-PIGWA.TRUSK 20T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity34" min="0" value="0"
+                               data-product="H.SAGA DZ.RÓŻA-PIGWA.TRUSK 20T szt"></td>
+                </tr>
+                <tr>
+                    <td>H.SAGA DZ.RÓŻA-ŻURAW 20T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity35" min="0" value="0"
+                               data-product="H.SAGA DZ.RÓŻA-ŻURAW 20T szt"></td>
+                </tr>
+                <tr>
+                    <td>H.SAGA EXPR."40"T 56G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity36" min="0" value="0"
+                               data-product="H.SAGA EXPR.'40'T 56G szt"></td>
+                </tr>
+                <tr>
+                    <td>H.SAGA EXPR.90 TOR. szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity37" min="0" value="0" data-product="H.SAGA EXPR.90 TOR. szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>H.SAGA MALINA 34G 20T szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity38" min="0" value="0"
+                               data-product="H.SAGA MALINA 34G 20T szt"></td>
+                </tr>
+                <tr>
+                    <td>H.SAGA SYPKA 90G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity39" min="0" value="0" data-product="H.SAGA SYPKA 90G szt">
+                    </td>
+                </tr>
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+        <div id="sectionCoffe" class="category">
+            <h3>Kawa</h3>
+            <table id="productsTableCoffe">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>KAW.JAC.IN.CR.GOLD 100G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity39" min="0" value="0"
+                               data-product="KAW.JAC.IN.CR.GOLD 100G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.IN.CR.GOLD 200G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity40" min="0" value="0"
+                               data-product="KAW.JAC.IN.CR.GOLD 200G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC IN.CR.GOLD 75G zapas szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity41" min="0" value="0"
+                               data-product="KAW.JAC IN.CR.GOLD 75G zapas szt"></td>
+                </tr>
+                <tr>
+                    <td>KAWA JAC.KRÓNUNG 75G ROZP. szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity42" min="0" value="0"
+                               data-product="KAWA JAC.KRÓNUNG 75G ROZP. szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.IN.KRONUNG 100G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity43" min="0" value="0"
+                               data-product="KAW.JAC.IN.KRONUNG 100G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.IN.KRONUNG 200G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity44" min="0" value="0"
+                               data-product="KAW.JAC.IN.KRONUNG 200G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.M.KRONUNG 100G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity45" min="0" value="0"
+                               data-product="KAW.JAC.M.KRONUNG 100G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.M.KRONUNG 250G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity46" min="0" value="0"
+                               data-product="KAW.JAC.M.KRONUNG 250G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.M.KRONUNG 500G. szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity47" min="0" value="0"
+                               data-product="KAW.JAC.M.KRONUNG 500G. szt"></td>
+                </tr>
+                <tr>
+                    <td>KAWA JAC.VELVET R.100G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity48" min="0" value="0"
+                               data-product="KAWA JAC.VELVET R.100G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.JAC.VELVET .200G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity49" min="0" value="0"
+                               data-product="KAW.JAC.VELVET .200G szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.LAVAZZA ORO ZIARNO 1KG szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity50" min="0" value="0"
+                               data-product="KAW.LAVAZZA ORO ZIARNO 1KG szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.LAVAZZA ROSA ZIAR.1KG szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity51" min="0" value="0"
+                               data-product="KAW.LAVAZZA ROSA ZIAR.1KG szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.LAVAZZA CREMA E AROMA 1KG szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity52" min="0" value="0"
+                               data-product="KAW.LAVAZZA CREMA E AROMA 1KG szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.MK FEELINGS 250G BEZ CENY !!!!! szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity53" min="0" value="0"
+                               data-product="KAW.MK FEELINGS 250G BEZ CENY !!!!! szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.MK.PREMIUM 500G NOWA szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity54" min="0" value="0"
+                               data-product="KAW.MK.PREMIUM 500G NOWA szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.MK PREMIUM 500G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity55" min="0" value="0" data-product="KAW.MK PREMIUM 500G szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>KAW.MK PREM 225G/B.NADR.CEN./ szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity56" min="0" value="0"
+                               data-product="KAW.MK PREM 225G/B.NADR.CEN./ szt"></td>
+                </tr>
+                <tr>
+                    <td>KAW.MK PREMIUM 100G szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity57" min="0" value="0" data-product="KAW.MK PREMIUM 100G szt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>KAW.MK PREM ROZ 175G SŁ.BEZ NAD.CEN szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity58" min="0" value="0"
+                               data-product="KAW.MK PREM ROZ 175G SŁ.BEZ NAD.CEN szt"></td>
+                </tr>
+                <tr>
+                    <td>KAWA MK PREMIUM CAFFE ZIARNO 1KG szt</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity59" min="0" value="0"
+                               data-product="KAWA MK PREMIUM CAFFE ZIARNO 1KG szt"></td>
+                </tr>
+
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sectionDrinks" class="category">
+            <h3>Napoje</h3>
+            <table id="productsTableDrinks">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>WODA CISOW.GAZ 0,5L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2624" min="0" value="0" data-product="WODA CISOW.GAZ 0,5L">
+                    </td>
+                </tr>
+                <tr>
+                    <td>WODA CISOW.GAZ 1.5L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2625" min="0" value="0" data-product="WODA CISOW.GAZ 1.5L">
+                    </td>
+                </tr>
+                <tr>
+                    <td>WODA CISOW.LEKKI GAZ.0,5L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2626" min="0" value="0"
+                               data-product="WODA CISOW.LEKKI GAZ.0,5L"></td>
+                </tr>
+                <tr>
+                    <td>WODA CISOW.LEKKI.GAZ.1,5L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2627" min="0" value="0"
+                               data-product="WODA CISOW.LEKKI.GAZ.1,5L"></td>
+                </tr>
+                <tr>
+                    <td>WODA CISOW. N/G 0,5L</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2628" min="0" value="0" data-product="WODA CISOW. N/G 0,5L">
+                    </td>
+                </tr>
+                <tr>
+                    <td>WODA KINGA PIEN.GAZ 0,33L SZKŁO</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2629" min="0" value="0"
+                               data-product="WODA KINGA PIEN.GAZ 0,33L SZKŁO"></td>
+                </tr>
+                <tr>
+                    <td>WODA KINGA PIEN.N/GAZ 0,33L SZKŁO</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2630" min="0" value="0"
+                               data-product="WODA KINGA PIEN.N/GAZ 0,33L SZKŁO"></td>
+                </tr>
+                <tr>
+                    <td>WODA KURAC.BESK.1L GAZ</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2631" min="0" value="0"
+                               data-product="WODA KURAC.BESK.1L GAZ"></td>
+                </tr>
+                <tr>
+                    <td>WODA KURAC.BESK.1,5L GAZ</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2632" min="0" value="0"
+                               data-product="WODA KURAC.BESK.1,5L GAZ"></td>
+                </tr>
+                <tr>
+                    <td>WODA KURAC.BESK.1L N/G</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2633" min="0" value="0"
+                               data-product="WODA KURAC.BESK.1L N/G"></td>
+                </tr>
+                <tr>
+                    <td>WODA MAGNEVITA 1.5L GAZ</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2634" min="0" value="0"
+                               data-product="WODA MAGNEVITA 1.5L GAZ"></td>
+                </tr>
+                <tr>
+                    <td>WODA MAGNEVITA 1.5L N/G</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2635" min="0" value="0"
+                               data-product="WODA MAGNEVITA 1.5L N/G"></td>
+                </tr>
+                <tr>
+                    <td>WODA MAGNEVITA 0.5L N/G</td>
+                    <td>szt</td>
+                    <td><input type="number" name="quantity2636" min="0" value="0"
+                               data-product="WODA MAGNEVITA 0.5L N/G"></td>
+                </tr>
+
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sectionChemistry" class="category">
+            <h3>Chemia</h3>
+            <table id="productsTableChemistry">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Płyn do naczyń</td>
+                    <td>l</td>
+                    <td><input type="number" name="quantity50" min="0" value="0" data-product="Płyn do naczyń"></td>
+                </tr>
+                <tr>
+                    <td>Proszek do prania</td>
+                    <td>kg</td>
+                    <td><input type="number" name="quantity51" min="0" value="0" data-product="Proszek do prania"></td>
+                </tr>
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="sectionAlcohol" class="category">
+            <h3>Alkohol</h3>
+            <table id="productsTableAlcohol">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Jm</th>
+                    <th>Ilość</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Wódka</td>
+                    <td>l</td>
+                    <td><input type="number" name="quantity60" min="0" value="0" data-product="Wódka"></td>
+                </tr>
+                <tr>
+                    <td>Piwo</td>
+                    <td>l</td>
+                    <td><input type="number" name="quantity61" min="0" value="0" data-product="Piwo"></td>
+                </tr>
+                <!-- Więcej produktów... -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <input type="submit" value="Wyślij zamówienie">
+</form>
+
+<script>
+    document.getElementById('categorySelect').addEventListener('change', function(event) {
+        document.querySelectorAll('.category').forEach(function(category) {
+            category.style.display = 'none';
+        });
+        var selectedCategory = event.target.value;
+        if (selectedCategory !== 'none') {
+            document.getElementById('section' + selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)).style.display = 'block';
+        }
+    });
+
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let formData = new FormData(this);
+        let products = '';
+
+        formData.forEach(function(value, key) {
+            // Exclude NIP and phone from products
+            if (key !== 'nip' && key !== 'phone') {
+                // If the field is a number (assuming it's a product quantity), add to products
+                if (value > 0) {
+                    let product = document.querySelector(`[name=${key}]`).dataset.product;
+                    products += `${product} - ${value}\n`;
+                }
+            }
+        });
+
+        // Prepare the mailto link
+        let mailtoLink = 'mailto:tomasz.pielecki86@gmail.com';
+        mailtoLink += `?subject=Zamówienie ${formData.get('companyName')}`;
+        mailtoLink += '&body=' + encodeURIComponent(`
+            Nazwa firmy: ${formData.get('companyName')}
+            NIP: ${formData.get('nip')}
+            Adres: ${formData.get('address')}
+            Imie: ${formData.get('names')}
+            Telefon: ${formData.get('phone')}
+            Email: ${formData.get('email')}
+            Produkty:
+            ${products}
+        `);
+
+        // Redirect to the email client
+        window.location.href = mailtoLink;
+    });
+</script>
+
+</body>
+</html>
