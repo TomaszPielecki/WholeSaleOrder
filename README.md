@@ -25,6 +25,17 @@ Formularz jest napisany w HTML i JavaScript i działa całkowicie w przeglądarc
 - **Walidację formularza**: Skrypt sprawdza, czy pole „Nazwa firmy” jest wypełnione i wyświetla alert, jeśli jest puste.
 - **Tworzenie e-maila**: Skrypt generuje link `mailto:` z przygotowanym e-mailem, który zawiera szczegóły zamówienia i otwiera domyślny klient e-mailowy.
 
+## Installation
+
+Pobierz repozytorium: Sklonuj repozytorium na swój komputer:
+
+1. **Clone the repository**:
+    **Otwórz plik HTML**: Otwórz plik index.html w swojej przeglądarce, aby zobaczyć formularz.
+    ```sh
+    git clone https://github.com/twoja_nazwa_uzytkownika/nazwa_repozitorium.git
+    ````
+    
+
 ```javascript
 document.getElementById('categorySelect').addEventListener('change', function(event) {
     document.querySelectorAll('.category').forEach(function(category) {
@@ -72,3 +83,9 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
 
     window.location.href = mailtoLink;
 });
+3. **Install the required dependencies**:
+    ```sh
+    Ograniczenia
+Brak integracji z bazą danych: Formularz nie jest połączony z bazą danych ani serwerem; dane są przesyłane bezpośrednio na e-mail.
+Brak walidacji serwerowej: Skrypt waliduje dane tylko w przeglądarce; brak wsparcia dla bardziej zaawansowanej walidacji lub autoryzacji.
+    ```
