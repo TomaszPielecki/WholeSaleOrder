@@ -26,7 +26,7 @@ Formularz jest napisany w HTML i JavaScript i działa całkowicie w przeglądarc
 - **Tworzenie e-maila**: Skrypt generuje link `mailto:` z przygotowanym e-mailem, który zawiera szczegóły zamówienia i otwiera domyślny klient e-mailowy.
 - 
 ![Formularz](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
-!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
+![Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
 ![E-mail](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
 ## Installation
 
