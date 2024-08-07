@@ -24,7 +24,10 @@ Formularz jest napisany w HTML i JavaScript i działa całkowicie w przeglądarc
 - **Ukrywanie i pokazywanie kategorii**: Po zmianie wyboru kategorii, skrypt ukrywa wszystkie kategorie i pokazuje tylko wybraną.
 - **Walidację formularza**: Skrypt sprawdza, czy pole „Nazwa firmy” jest wypełnione i wyświetla alert, jeśli jest puste.
 - **Tworzenie e-maila**: Skrypt generuje link `mailto:` z przygotowanym e-mailem, który zawiera szczegóły zamówienia i otwiera domyślny klient e-mailowy.
-
+- 
+![Formularz](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
+!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
+![E-mail](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
 ## Installation
 
 Pobierz repozytorium: Sklonuj repozytorium na swój komputer:
@@ -83,9 +86,6 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
 
     window.location.href = mailtoLink;
 });
-![Formularz](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
-!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
-![E-mail](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
 3. **Install the required dependencies**:
     ```sh
     Ograniczenia
