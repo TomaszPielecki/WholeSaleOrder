@@ -32,7 +32,7 @@ Pobierz repozytorium: Sklonuj repozytorium na swój komputer:
 1. **Clone the repository**:
     **Otwórz plik HTML**: Otwórz plik index.html w swojej przeglądarce, aby zobaczyć formularz.
     ```sh
-    git clone https://github.com/twoja_nazwa_uzytkownika/nazwa_repozitorium.git
+    git clone https://github.com/TomaszPielecki/nazwa_repozitorium.git
     ````
     
 
