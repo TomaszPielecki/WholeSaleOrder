@@ -83,6 +83,9 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
 
     window.location.href = mailtoLink;
 });
+![Formularz](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
+!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
+![E-mail](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
 3. **Install the required dependencies**:
     ```sh
     Ograniczenia
@@ -90,6 +93,4 @@ Brak integracji z bazą danych: Formularz nie jest połączony z bazą danych an
 Brak walidacji serwerowej: Skrypt waliduje dane tylko w przeglądarce; brak wsparcia dla bardziej zaawansowanej walidacji lub autoryzacji.
     ```
 
-![Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
-!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
-![Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
+
