@@ -90,6 +90,6 @@ Brak integracji z bazą danych: Formularz nie jest połączony z bazą danych an
 Brak walidacji serwerowej: Skrypt waliduje dane tylko w przeglądarce; brak wsparcia dla bardziej zaawansowanej walidacji lub autoryzacji.
     ```
 
-![wybor_Kryptowaluty](https://github.com/TomaszPielecki/Crypto/blob/Kryptowaluty/wybor_Kryptowaluty.png)
-![wybor_Kryptowaluty](https://github.com/TomaszPielecki/Crypto/blob/Kryptowaluty/wybor_Kryptowaluty.png)
-![wybor_Kryptowaluty](https://github.com/TomaszPielecki/Crypto/blob/Kryptowaluty/wybor_Kryptowaluty.png)
+![Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Formularz.png)
+!Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/Zamowienie.png)
+![Zamowienie](https://github.com/TomaszPielecki/WholeSaleOrder/blob/main/E-mail.png)
